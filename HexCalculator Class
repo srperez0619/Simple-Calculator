@@ -1,0 +1,33 @@
+package projects;
+
+public class HexCalc extends Calculator2 implements CalcOps{
+	String hexToDecimal;
+	HexCalc() { 
+		hexToDecimal = "A";
+	}
+	
+	HexCalc(String hexToDecimal) { 
+		super();
+		this.hexToDecimal = hexToDecimal;
+	}
+	
+	@Override
+	public float add(float a, float b) {
+		return a + b;
+	}
+	
+	@Override
+	public float subtract(float a, float b) {
+		return a - b;
+	}
+	
+	@Override
+	public float multiply(float a, float b) {
+		return a*b;
+	}
+	
+	@Override
+	public float divide(float a, float b) {
+		return a/b;
+	}
+}
