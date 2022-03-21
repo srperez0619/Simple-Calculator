@@ -1,0 +1,187 @@
+import java.util.Scanner;
+public class TestCalculator {
+	public static void main(String [] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		Calculator2 c = new Calculator2();
+		HexCalc h = new HexCalc();
+		
+		float a = 0, b = 0;
+		String d,d2;
+		boolean boo = false;
+		
+		
+		while(boo == false) { 
+			System.out.print("\n--MENU--\n1 - Decimal\n2 - Hexadecimal\n3 - Exit\nSelect ");
+			int choice = sc.nextInt();
+			if(choice == 1) { 
+				decimal();
+				
+			}
+			if(choice == 2) { 
+				hexaDecimal();
+			}
+			if(choice == 3) { 
+				System.out.println("\nShutting down...");
+				boo = true;
+			}
+		}
+	}
+	public static void decimal() { 
+		Scanner sc3 = new Scanner(System.in);
+		boolean boo = false;
+		float a,b;
+		
+		Calculator2 c = new Calculator2();
+		while(boo == false) { 
+			System.out.print("\n--Decimal Operations--\n1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division\n5 - Exit\nSelect ");
+			int choice = sc3.nextInt();
+			if(choice == 1) { 
+				System.out.print("Value a: ");
+				a = sc3.nextFloat();
+				System.out.print("Value b: ");
+				b = sc3.nextFloat();
+				
+				System.out.println(a + " + " + b + " = " + c.add(a, b));
+			}
+			
+			else if(choice == 2) { 
+				System.out.print("Value a: ");
+				a = sc3.nextFloat();
+				System.out.print("Value b: ");
+				b = sc3.nextFloat();
+				
+				System.out.println(a + " - " + b + " = " + c.subtract(a, b));
+			}
+			else if(choice == 3) { 
+				System.out.print("Value a: ");
+				a = sc3.nextFloat();
+				System.out.print("Value b: ");
+				b = sc3.nextFloat();
+				
+				System.out.println(a + " * " + b + " = " + c.multiply(a, b));
+			}
+			
+			else if(choice == 4) {
+				System.out.print("Value a: ");
+				a = sc3.nextFloat();
+				System.out.print("Value b: ");
+				b = sc3.nextFloat();
+				
+				System.out.println(a + " / " + b + " = " + c.divide(a, b));
+			}
+			
+			else if(choice == 5) {
+				System.out.println("\nReturning to main menu...\n");
+				boo = true;
+			}
+			
+			else {
+				System.out.println("Invalid Selection. Select again.");
+			}
+			sc3.nextLine();
+		}
+	}
+	public static void hexaDecimal() { 
+		boolean boo = false;
+		String a,b;
+		Scanner sc2 = new Scanner(System.in);
+		sc2.nextLine();
+		while(boo == false) { 
+			System.out.print("\n--Hexadecimal Operations--\n1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division\n5 - Exit\nSelect ");
+			int choice = sc2.nextInt();
+			
+			Calculator2 c = new Calculator2();
+			HexCalc h = new HexCalc();
+			
+			if(choice == 1) { 
+				System.out.print("1st Hexdecimal: ");
+				a = sc2.nextLine();
+				sc2.nextLine();
+				System.out.print("2nd Hexadecimal: ");
+				b = sc2.nextLine();
+				
+				int a2 = c.hexToDec(a);
+				int b2 = c.hexToDec(b);
+				
+				float a3 = (float)(a2);
+				float b3 = (float)(b2);
+				
+				float sum = c.add(a3, b3);
+				
+				String s = Integer.toHexString((int)(sum));
+				
+				System.out.println(a + " + " + b + " = " + s);
+			}
+			
+			else if(choice == 2) { 
+				System.out.print("1st Hexdecimal: ");
+				a = sc2.nextLine();
+				sc2.nextLine();
+				System.out.print("2nd Hexadecimal: ");
+				b = sc2.nextLine();
+				
+				int a2 = c.hexToDec(a);
+				int b2 = c.hexToDec(b);
+				
+				float a3 = (float)(a2);
+				float b3 = (float)(b2);
+				
+				float diff = c.subtract(a3, b3);
+				
+				String s = Integer.toHexString((int)(diff));
+				
+				System.out.println(a + " - " + b + " = " + s);
+			}
+			else if(choice == 3) { 
+				System.out.print("1st Hexdecimal: ");
+				a = sc2.nextLine();
+				sc2.nextLine();
+				System.out.print("2nd Hexadecimal: ");
+				b = sc2.nextLine();
+				
+				int a2 = c.hexToDec(a);
+				int b2 = c.hexToDec(b);
+				
+				float a3 = (float)(a2);
+				float b3 = (float)(b2);
+				
+				float pro = c.multiply(a3, b3);
+				
+				String s = Integer.toHexString((int)(pro));
+				
+				System.out.println(a + " * " + b + " = " + s);
+			}
+			
+			else if(choice == 4) {
+				System.out.print("1st Hexdecimal: ");
+				a = sc2.nextLine();
+				sc2.nextLine();
+				System.out.print("2nd Hexadecimal: ");
+				b = sc2.nextLine();
+				
+				int a2 = c.hexToDec(a);
+				int b2 = c.hexToDec(b);
+				
+				float a3 = (float)(a2);
+				float b3 = (float)(b2);
+				
+				float quo = c.divide(a3, b3);
+				
+				String s = Integer.toHexString((int)(quo));
+				
+				System.out.println(a + " / " + b + " = " + s);
+			}
+			
+			else if(choice == 5) {
+				System.out.println("\nReturning to main menu...\n");
+				boo = true;
+			}
+			
+			else {
+				System.out.println("Invalid Selection. Select again.");
+			}
+			sc2.nextLine();
+		}
+	}
+}
